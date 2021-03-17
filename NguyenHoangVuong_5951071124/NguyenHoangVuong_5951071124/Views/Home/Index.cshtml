@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    th,td{
+        border:1px solid black;
+    }
+    table{
+        width:100%;
+    }
+</style>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Sr No.</th>
+                <th>Employee Name</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Department</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+       
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Sr_no</td>
+                    <td>@item.Emp_name</td>
+                    <td>@item.City</td>
+                    <td>@item.STATE</td>
+                    <td>@item.Country</td>
+                    <td>@item.Department</td>
+                    <td>
+                        <a asp-action="edit" asp-route-id="@item.Sr_no">Edit</a>
+                        <a asp-action="delete" asp-route-id="@item.Sr_no">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
